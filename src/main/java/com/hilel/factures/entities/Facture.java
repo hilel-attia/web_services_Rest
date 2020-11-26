@@ -5,13 +5,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.sun.istack.NotNull;
 @Entity
 public class Facture {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long idFacture;
+@NotNull
+@Size (min = 4,max = 15)
 private String nomFacture;
+
+@Min(value = 2)
+@Max(value = 15)
 private Double tvaFacture;
+@Temporal(TemporalType.DATE)
+@DateTimeFormat(pattern = "yyyy-MM-dd")
 private Date dateCreation;
 
 

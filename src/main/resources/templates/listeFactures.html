@@ -30,6 +30,7 @@
  <td th:text="${p.tvaFacture}"></td>
 
 <td><a class="btn btn-danger" onclick="return confirm('Etes-vous sûr ?')"  th:href="@{supprimerFacture(id=${p.idFacture},page=${currentPage},size=${size})}">Supprimer</a></td>
+<td><a class="btn btn-success" th:href="@{modifierFacture(id=${p.idFacture})}">Editer</a></td>
  </tr>
  </table>
  <ul class="nav nav-pills">
